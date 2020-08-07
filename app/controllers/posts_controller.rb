@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     def index
         @posts = Post.all
     end
@@ -6,6 +7,11 @@ class PostsController < ApplicationController
     def new
         @post = current_user.posts.build
     end 
+
+    def show
+        @post = Post.find(params[:id])
+        @author = @post.author
+    end
 
     def create
         @post = current_user.posts.build(posts_params)

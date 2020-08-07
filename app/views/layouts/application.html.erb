@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= link_to 'sign_up', new_user_registration_path %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <%= link_to 'new_post', new_post_path %>
     <%= link_to 'home', root_path %>
 

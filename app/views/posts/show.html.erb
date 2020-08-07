@@ -1,0 +1,7 @@
+<div class="post-owner">
+    <h3>username: <%= @author.username%> <br>email: <%= @author.email%></h3>
+</div>
+<p>post:
+    <div class="post-contents"><%= @post.body%></div>
+<p>
+<h3><%= link_to 'view', root_path %> <%= @author.username%>'s page</h3>
