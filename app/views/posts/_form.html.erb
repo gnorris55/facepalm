@@ -1,0 +1,5 @@
+<%= form_for @post do |post|%>
+    <%= post.label "post contents" %>
+    <%= post.text_field :body %>
+    <%= post.submit "post" %>
+<% end %>

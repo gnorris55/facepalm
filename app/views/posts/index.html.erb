@@ -1,0 +1,14 @@
+<h2>hello</h2>
+
+<% if user_signed_in? %>
+    <h3>you are currently signed in as <%= current_user.email%></h3>
+<% end %>
+<% if @posts.present? %>
+    <% @posts.each do |post|%>
+        <div class="post">
+            <div class="post-author"><%= post.author.email%></div>
+            <div class="post-body"><%= post.body%></div>
+            <br>
+        </div>
+    <% end %>
+<% end %>

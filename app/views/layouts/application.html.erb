@@ -1,9 +1,15 @@
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet"> 
 <!DOCTYPE html>
 <html>
   <head>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <title>Facepalm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= link_to 'sign_up', new_user_registration_path %>
+    <%= link_to 'new_post', new_post_path %>
+    <%= link_to 'home', root_path %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
