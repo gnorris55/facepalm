@@ -13,6 +13,15 @@ class PostsController < ApplicationController
         @author = @post.author
     end
 
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = current_user.posts.update(posts_params)
+        redirect_to post_path(@post)
+    end
+
     def create
         @post = current_user.posts.build(posts_params)
         p = @post.errors.messages

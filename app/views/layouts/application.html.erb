@@ -7,10 +7,18 @@
     <title>Facepalm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= link_to 'sign_up', new_user_registration_path %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <%= link_to 'new_post', new_post_path %>
-    <%= link_to 'home', root_path %>
+    <nav class="options">
+      <div class="positioning">
+        <div class="facepalm-logo"><h2>facepalm</h2></div>
+        <div class="nav-object"><%= link_to 'sign_up', new_user_registration_path %>
+        <%= link_to 'sign_in', new_user_session_path %>
+        <% if user_signed_in?%>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% end %>
+        <%= link_to 'new_post', new_post_path %>
+        <%= link_to 'home', root_path %>
+      </div>
+    </nav>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

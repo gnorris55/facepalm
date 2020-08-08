@@ -1,0 +1,11 @@
+<h2>user info</h2>
+
+<h3>username: <%= @user.username%></h3>
+<h3>email: <%= @user.email%></h3>
+<h3>post count: <%= @user.posts.count%></h3>
+<h2>post history:</h2>
+<% @user.posts.each do |post|%>
+    <div class="post-body">
+        <p><%= post.body %></p>
+    </div>
+<% end %>

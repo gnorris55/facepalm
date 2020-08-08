@@ -4,4 +4,4 @@
 <p>post:
     <div class="post-contents"><%= @post.body%></div>
 <p>
-<h3><%= link_to 'view', root_path %> <%= @author.username%>'s page</h3>
+<h3><%= link_to 'view', user_path(@author) %> <%= @author.username%>'s page</h3>
