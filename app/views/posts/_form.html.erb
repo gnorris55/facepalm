@@ -1,5 +1,5 @@
 <%= form_for @post do |post|%>
-    <%= post.label "post contents" %>
-    <%= post.text_field :body %>
-    <%= post.submit "post" %>
+    <div class=""><%= post.label "post contents: " %></div> 
+    <div class=""><%= post.text_area :body %></div>
+    <div class=""><%= post.submit "post" %></div>
 <% end %>

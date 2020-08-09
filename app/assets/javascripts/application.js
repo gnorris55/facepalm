@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+/*('.follow-form').on('submit', function() 
+{
+    console.log("submitted");
+});*/
+
+
