@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, foreign_key: "author_id", :dependent => :destroy
+  has_many :user_requests
+
+  
 end

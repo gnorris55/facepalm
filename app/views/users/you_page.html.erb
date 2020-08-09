@@ -1,0 +1,6 @@
+<h2><%= @user.username %></h2>
+
+
+<% @user.user_requests.each do |requests|%>
+    <p><%= User.find(requests.requester_id).username%> would like to follow you</p>
+<% end %>
