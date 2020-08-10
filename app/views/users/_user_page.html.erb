@@ -1,11 +1,13 @@
 
 <% if current_user != @user && user_signed_in? %>
     <div class="follow-request-form">
-        <% if @user.user_requests.find_by(requester_id: current_user.id).present?%>
+        <% if @user.user_requests.find_by(requester_id: current_user.id).present? %>
             requested to follow
+        <% elsif @user.friendships.find_by(friend_id: current_user.id).present? %>
+            friends
         <% else %>
             <div class="follow-form">
-                <%= form_with(url: user_follow_path) do %>
+                <%= form_with(url: request_follow_path) do %>
                     <%= hidden_field_tag(:user_id, @user.id)%>
                     <%= hidden_field_tag(:requester_id, current_user.id)%>
                     <%= submit_tag "follow #{@user.username}"%>
@@ -14,6 +16,7 @@
         <% end %>
     </div>
 <% end %>
+
 <h2>Personal Info</h2>
 <div class="personal-info" id="user-info">
     <h3>username: <%= @user.username%> </h3>

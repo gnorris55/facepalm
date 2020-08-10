@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: "author_id", :dependent => :destroy
   has_many :user_requests
 
+  scope :friends, -> {where}
+
   has_many :friendships
 end

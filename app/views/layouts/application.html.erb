@@ -19,6 +19,7 @@
         <% if user_signed_in?%>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
           <%= link_to "My Page", you_page_path%>
+          <%= link_to "following", friend_page_path%>
           friend requests <%= current_user.user_requests.count%>
         <% end %>
       </div>
