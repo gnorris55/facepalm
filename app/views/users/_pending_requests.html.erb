@@ -1,0 +1,12 @@
+<% if @requests.present? %>
+    <% @request_list = []%>
+    <% @requests.each do |request| %>
+        <% if request.requester_id == @user.id %>
+            <p><%= User.find(request.user_id).username %></p>
+            <% @request_list << User.find(request.user_id).username %>
+        <% end %>
+    <% end %>
+    <% if !@request_list.present?%>
+        <p>you have no pending friend requests</p>
+    <% end %>
+<% end %>

@@ -4,52 +4,18 @@
 <h2>My Page</h2>
 <%= render :partial => 'user_page'%>
 <h2>Friendship Details</h2>
+
 <div class="friendship-details">
     <div class="friendship-content">
+
         <h3>Friends</h3>
-        <%if @user.friendships.present? %>
-            <% @user.friendships.each do |friend|%>
-                <p><%= User.find(friend.friend_id).username%></p>
-            <% end %>
-        <% else %>
-            <p>you currently have no friends</p>
-        <% end %>
+        <%= render :partial => 'friends'%>
 
         <h3>Friend Requests</h3>
-        <% if @user.user_requests.present? %>
-            <% @user.user_requests.each do |requests|%>
-                <p>
-                    <% @friend = User.find(requests.requester_id) %> 
-                    <%= @friend.username%> wants to follow you
-                    <%= form_with(url: follow_path) do %>
-                            <% @friend = User.find(requests.requester_id) %> 
-                            <%= hidden_field_tag :friend_id, @friend.id%>
-                            <%= hidden_field_tag :user_id, @user.id%>
-                            <%= submit_tag "accept"%>
-                    <% end %>
-                    <%= form_with(url: reject_friendship_path) do %>
-                            <%= hidden_field_tag :friend_id, @friend.id%>
-                            <%= hidden_field_tag :user_id, @user.id%>
-                            <%= submit_tag "decline"%>
-                    <% end %>
-                </p>
-            <% end %>
-        <% else %>
-            <p>you currently have no friends requests </p>
-        <% end %>
+        <%= render :partial => 'friend_requests'%>
 
-        <% if @requests.present? %>
-            <h3>still pending friend requests</h3>
-            <% @request_list = []%>
-            <% @requests.each do |request| %>
-                <% if request.requester_id == @user.id %>
-                    <p><%= User.find(request.user_id).username %></p>
-                    <% @request_list << User.find(request.user_id).username %>
-                <% end %>
-            <% end %>
-            <% if !@request_list.present?%>
-                <p>you have no pending friend requests</p>
-            <% end %>
-        <% end %>
+        <h3>Pending Friend Requests</h3>
+        <%= render :partial => 'pending_requests'%>
+        
     </div>
 </div>

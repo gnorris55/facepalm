@@ -2,21 +2,6 @@
 
 <% @user.friendships.each do |friend|%>
     <% User.find(friend.friend_id).posts.each do |post|%>
-        <div class="post">
-                <div class="post-contents">
-                    <div class="post-author">author: <%= post.author.username%></div>
-                    <br>
-                    <div class="post-body"><%= post.body%></div>
-                    <div class="post-options">
-                    <%= link_to 'view post', post_path(post)%> 
-                        <% if user_signed_in? %>
-                            <% if current_user.id == post.author.id %>
-                                <%= link_to 'edit post', edit_post_path(post)%>
-                            <% end %>
-                        <% end %>
-                    <br>
-                    </div>
-                </div>
-            </div>
+        <%= render :partial => 'post_info', locals: {post: post}%>
     <% end %>
 <% end %>

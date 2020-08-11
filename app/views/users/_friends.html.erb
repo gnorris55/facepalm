@@ -1,0 +1,7 @@
+<%if @user.friendships.present? %>
+    <% @user.friendships.each do |friend|%>
+        <p><%= User.find(friend.friend_id).username%></p>
+    <% end %>
+<% else %>
+    <p>you currently have no friends</p>
+<% end %>

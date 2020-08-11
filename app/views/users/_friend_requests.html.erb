@@ -1,0 +1,21 @@
+<% if @user.user_requests.present? %>
+    <% @user.user_requests.each do |requests|%>
+        <p>
+            <% @friend = User.find(requests.requester_id) %> 
+            <%= @friend.username%> wants to follow you
+            <%= form_with(url: follow_path) do %>
+                    <% @friend = User.find(requests.requester_id) %> 
+                    <%= hidden_field_tag :friend_id, @friend.id%>
+                    <%= hidden_field_tag :user_id, @user.id%>
+                    <%= submit_tag "accept"%>
+            <% end %>
+            <%= form_with(url: reject_friendship_path) do %>
+                    <%= hidden_field_tag :friend_id, @friend.id%>
+                    <%= hidden_field_tag :user_id, @user.id%>
+                    <%= submit_tag "decline"%>
+            <% end %>
+        </p>
+    <% end %>
+<% else %>
+    <p>you currently have no friends requests </p>
+<% end %>

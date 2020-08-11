@@ -7,6 +7,7 @@
     <title>Facepalm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <nav class="options">
       <div class="positioning">
         <div class="facepalm-logo"><h2>facepalm</h2></div>
@@ -18,8 +19,8 @@
         <%= link_to 'new_post', new_post_path %>
         <% if user_signed_in?%>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-          <%= link_to "My Page", you_page_path%>
           <%= link_to "following", friend_page_path%>
+          <%= link_to "My Page", you_page_path%>
           friend requests <%= current_user.user_requests.count%>
         <% end %>
       </div>
@@ -31,5 +32,6 @@
 
   <body>
     <%= yield %>
+    <%= link_to 'all users', users_path%>
   </body>
 </html>
