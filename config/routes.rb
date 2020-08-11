@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/request_follow' => 'users#request_follow', as: "request_follow"
   post '/follow' => 'users#follow', as: 'follow'
   post '/reject_friendship' => 'users#reject_friendship', as: 'reject_friendship'
+  post '/like_post' => 'users#like_post', as: 'like_post'
   get '/you_page' => 'users#you_page', as: "you_page"
   get '/friend_page' => 'posts#friend_page', as: "friend_page"
   

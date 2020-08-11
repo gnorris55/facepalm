@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
             flash[:message] = "comment could not be posted"
         end
 
-        redirect_to root_path
+        redirect_to post_path(@comment.post.id)
     end
 
     private

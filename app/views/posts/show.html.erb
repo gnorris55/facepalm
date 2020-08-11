@@ -1,9 +1,15 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" />
+
 <div class="post-owner">
     <h3>username: <%= @author.username%> <br>email: <%= @author.email%></h3>
 </div>
 <p>post:
     <div class="post-contents"><%= @post.body%></div>
 <p>
+<p>likes: <%= @post.likers.count%></p>
+
+<%= render :partial => 'likes'%>
 
 <h2>comments</h2>
 <% if @post.comments.present? %>

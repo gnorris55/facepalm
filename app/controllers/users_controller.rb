@@ -22,6 +22,15 @@ class UsersController < ApplicationController
         redirect_to you_page_path
 
     end
+
+    def like_post
+        @user = User.find(current_user.id)
+        @user.liked_posts << Post.find(params[:post_id])
+        @user.save
+
+        redirect_to post_path(params[:post_id])
+        
+    end
     
     def follow 
         @user = User.find(params[:user_id])

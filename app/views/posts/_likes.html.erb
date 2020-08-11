@@ -1,0 +1,14 @@
+
+<% if @post.likers.present? &&  user_signed_in? %>
+    <% if !@post.likers.where(id: current_user.id).present? %>
+        <%= form_with(url: like_post_path) do %>
+            <%= hidden_field_tag :post_id, @post.id%>
+            <%= submit_tag 'Like Post'%>
+        <% end %>
+    <% end %>
+<% elsif user_signed_in? %>
+    <%= form_with(url: like_post_path) do %>
+        <%= hidden_field_tag :post_id, @post.id%>
+        <%= submit_tag 'Like Post'%>
+    <% end %>
+<% end %>
