@@ -19,10 +19,17 @@
 
 <h2>Personal Info</h2>
 <div class="personal-info" id="user-info">
+    <h3><div class="profile-picture"><%= image_tag @user.profile_picture.url(:thumb), :size => "50x50"%></div> </h3>
     <h3>username: <%= @user.username%> </h3>
     <h3>email: <%= @user.email%></h3>
     <h3>post count: <%= @user.posts.count%></h3>
 </div>
+<% if user_signed_in?%>
+    <% if current_user.id == @user.id%>
+        <%= link_to 'edit your profile', edit_user_registration_path %>
+    <% end %>
+<% end %>
+
 <h2>post history:</h2>
 <div class="post-history" id="user-info">
     <% @user.posts.each do |post|%>

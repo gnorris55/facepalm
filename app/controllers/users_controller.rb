@@ -45,11 +45,9 @@ class UsersController < ApplicationController
     end 
 
 
-
     def you_page 
         @user = User.find(current_user.id)
         @requests = UserRequest.all
-
     end
 
 end
