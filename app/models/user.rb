@@ -10,4 +10,5 @@ class User < ApplicationRecord
   scope :friends, -> {where}
 
   has_many :friendships
+  has_many :comments
 end

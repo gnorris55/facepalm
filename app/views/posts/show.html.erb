@@ -4,8 +4,25 @@
 <p>post:
     <div class="post-contents"><%= @post.body%></div>
 <p>
+
+<h2>comments</h2>
+<% if @post.comments.present? %>
+    <% @post.comments.each do |comment| %>
+        <p><%= User.find(comment.user_id).username %></p>
+        <p><%= comment.body %></p>
+    <% end %>
+<% else %>
+    <p> there are no comments </p>
+<% end %>
+
 <% if @author == current_user%>
     <h3><%= link_to 'view', you_page_path %> your page </h3>
 <% else %>
     <h3><%= link_to 'view', user_path(@author) %> <%= @author.username%>'s page</h3>
+<% end %>
+
+<%= form_with model: @comment, local: true do |comment| %>
+    <%= comment.text_field :body%>
+    <%= comment.hidden_field :post_id, :value => @post.id %>
+    <%= comment.submit "comment on post"%>
 <% end %>

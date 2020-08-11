@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers =>  { registrations: 'registrations'}
   resources :posts
   resources :users
+  resources :comments
 
   post '/request_follow' => 'users#request_follow', as: "request_follow"
   post '/follow' => 'users#follow', as: 'follow'
