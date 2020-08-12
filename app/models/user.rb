@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  devise :omniauthable, omniauth_providers: %i[facebook]
+
   has_attached_file :profile_picture, styles: {thumb: "50x50>"}, default_url: "https://t3.ftcdn.net/jpg/00/64/67/52/240_F_64675209_7ve2XQANuzuHjMZXP3aIYIpsDKEbF5dD.jpg"
   validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
 
@@ -20,6 +22,7 @@ class User < ApplicationRecord
   after_create :welcome_send
 
   def welcome_send
+
     UserMailer.welcome_email(self).deliver_now
     #redirect_to root_path
   end
