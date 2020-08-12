@@ -11,16 +11,14 @@ class UsersController < ApplicationController
         @user = User.find(params[:user_id])
         @user.user_requests.create(requester_id: params[:requester_id])
 
-        redirect_to user_path(@user)
-
+        redirect_back(fallback_location: root_path)
     end
 
     def reject_friendship
         @user = User.find(params[:user_id])
         @user.user_requests.find_by(requester_id: params[:friend_id]).destroy
 
-        redirect_to you_page_path
-
+        redirect_back(fallback_location: root_path)
     end
 
     def like_post
@@ -28,7 +26,7 @@ class UsersController < ApplicationController
         @user.liked_posts << Post.find(params[:post_id])
         @user.save
 
-        redirect_to post_path(params[:post_id])
+        redirect_back(fallback_location: root_path)
         
     end
     
@@ -40,7 +38,7 @@ class UsersController < ApplicationController
         @friend.friendships.create(friend_id: @user.id)
         @user.user_requests.find_by(requester_id: @friend.id).destroy
         
-        redirect_to you_page_path
+        redirect_back(fallback_location: root_path)
 
     end 
 
