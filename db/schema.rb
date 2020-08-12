@@ -12,16 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_08_12_170114) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
     t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "friend_requests", force: :cascade do |t|
-    t.integer "requested_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_170114) do
 
   create_table "user_requests", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "requester_id"
+    t.integer "user_requested_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
