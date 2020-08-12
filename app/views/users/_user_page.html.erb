@@ -14,10 +14,15 @@
 <% end %>
 
 <h2>post history:</h2>
-<div class="post-history" id="user-info">
-    <% @user.posts.each do |post|%>
-        <div class="post-body">
-            <p><%= post.body %></p>
-        </div>
-    <% end %>
-</div>
+<% if @user.posts.present?%>
+    <div class="post-history" id="user-info">
+        <% @user.posts.each do |post|%>
+            <div class="post-body">
+                <p><%= post.body %></p>
+            </div>
+        <% end %>
+    </div>
+
+<% else %>
+    <p>you have not made any posts yet, you can do so <%= link_to 'here', new_post_path%></p>
+<% end %>

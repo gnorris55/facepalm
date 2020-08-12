@@ -16,4 +16,5 @@ class User < ApplicationRecord
 
   has_many :likes, foreign_key: "liker_id"
   has_many :liked_posts, through: :likes, source: :liked_post
+
 end

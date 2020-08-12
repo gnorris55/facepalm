@@ -1,7 +1,10 @@
-<h2>your feed</h2>
+<h2>timeline</h2>
 
-<% @user.friendships.each do |friend|%>
-    <% User.find(friend.friend_id).posts.each do |post|%>
-        <%= render :partial => 'post_info', locals: {post: post}%>
+<% @posts.each do |post|%>
+    <% post.author.friendships.each do |friend| %>
+        <% if friend.friend_id == current_user.id || friend.user_id == current_user.id %>
+            <%= render :partial => 'post_info', :locals => {post: post} %>
+            <% break %>
+        <% end %>
     <% end %>
 <% end %>

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     end
 
     def friend_page
-        @user = User.find(current_user.id)
+        @posts = Post.all.order(created_at: :desc)
     end
 
     def new
