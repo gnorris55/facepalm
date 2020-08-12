@@ -17,4 +17,10 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: "liker_id"
   has_many :liked_posts, through: :likes, source: :liked_post
 
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+    #redirect_to root_path
+  end
 end
