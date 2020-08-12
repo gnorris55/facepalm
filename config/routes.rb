@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post '/like_post' => 'users#like_post', as: 'like_post'
   get '/you_page' => 'users#you_page', as: "you_page"
   get '/friend_page' => 'posts#friend_page', as: "friend_page"
-  
 
   root 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

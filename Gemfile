@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'figaro', '~> 1.2'
 gem 'omniauth-facebook', '~> 6.0'
+gem 'omniauth-twitter', '~> 1.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

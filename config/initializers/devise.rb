@@ -310,4 +310,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :facebook, "APP_ID", "APP_SECRET"
+  #config.omniauth :twitter, ENV["API_KEY"], ENV["API_SECRET"]
+
 end
