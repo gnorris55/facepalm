@@ -61,8 +61,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #devise stuff
-  config.action_mailer.default_url_options = { :host => 'domain.com' }
-  Rails.application.routes.default_url_options[:host] = 'domain.com'
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  Rails.application.routes.default_url_options[:host] = '???'
 
   #paperclip stuff
   Paperclip.options[:command_path] = "/usr/local/bin/"

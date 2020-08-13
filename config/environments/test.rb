@@ -56,6 +56,6 @@ Rails.application.configure do
     password: ENV["EMAIL_PASSWORD"]
   }
 
-  config.action_mailer.default_url_options = { :host => 'domain.com' }
-  Rails.application.routes.default_url_options[:host] = 'domain.com'
+  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
+  Rails.application.routes.default_url_options[:host] = '???'
 end
