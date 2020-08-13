@@ -22,8 +22,7 @@ class User < ApplicationRecord
   after_create :welcome_send
 
   def welcome_send
-
-    UserMailer.welcome_email(self).deliver_later
-    redirect_to root_path
+    UserMailer.welcome_message(self).deliver_now
+    redirect_to posts_path
   end
 end
