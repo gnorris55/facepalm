@@ -61,7 +61,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #devise stuff
-  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
+  config.action_mailer.default_url_options = { :host => 'domain.com' }
 
   #paperclip stuff
   Paperclip.options[:command_path] = "/usr/local/bin/"
@@ -71,7 +71,7 @@ Rails.application.configure do
   {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "heroku.com",
+    domain: "domain.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["EMAIL_USERNAME"],

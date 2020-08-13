@@ -97,14 +97,14 @@ Rails.application.configure do
   {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "heroku.com",
+    domain: 'domain.com',
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["EMAIL_USERNAME"],
     password: ENV["EMAIL_PASSWORD"]
   }
 
-  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
+  config.action_mailer.default_url_options = { :host => 'domain.com' }
 
 
 end
