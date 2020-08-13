@@ -57,4 +57,5 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = { :host => 'domain.com' }
+  Rails.application.routes.default_url_options[:host] = 'domain.com'
 end
